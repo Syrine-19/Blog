@@ -1,0 +1,30 @@
+                <div class="destination-card bg-transparent p-4 shadow-md rounded-lg">
+
+  <div class="container mx-auto py-8 text-center">
+    <h1 class="text-3xl font-bold mb-4" style="color: purple;">
+      <%= @article.title %>
+    </h1>
+
+    <div class="py-4 text-lg text-white">
+      <%= @article.body %>
+    </div>
+
+    <%= image_tag @article.image, class: "mx-auto" if @article.image.attached? %>
+
+    <div class="mt-4 flex justify-center">
+<%= button_to "Modifier", edit_article_path(@article), method: :get, class: "inline-block px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-400" %>
+      <%= button_to "Supprimer", @article, method: :delete, data: { confirm: "Vous êtes sûrs ?" }, class: "inline-block px-4 py-2 text-white bg-red-500 rounded hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-400" %>
+    </div>
+
+    <div class="p-4">
+      <h2 class="text-2xl font-semibold mb-4">Commentaires</h2>
+    </div>
+
+    <%= render @article.comments %>
+
+    <div class="mt-8">
+      <h2 class="text-xl font-semibold">Ajouter un commentaire</h2>
+      <%= render 'comments/form' %>
+    </div>
+  </div>
+</div>

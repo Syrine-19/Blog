@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitez la France</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <style>
+      .destination-card {
+        background: rgba(128, 128, 128, 0.5) ;
+        border-radius: 10px;
+        padding: 20px;
+        transition: transform 0.2s;
+      }
+      .destination-card:hover {
+        transform: scale(1.05);
+      }
+     .video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  .Background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+    </style>
+  </head>
+  <body class="bg-gray-100 font-sans">
+
+<div class="container mx-auto p-8">
+
+    <nav class="bg-black p-4 ">
+      <ul class="flex justify-center space-x-6">
+        <li><a href=<%=root_path %> class="text-white">Accueil</a></li>
+        <li><a href=<%=articles_path %> class="text-white">Destinations</a></li>
+        <li><a href=<%= activites_path %> class="text-white">Activités</a></li>
+        <li><a href="/contact" class="text-white">Contact</a></li>
+      </ul>
+    </nav>
+      <div class="video-background">
+        <%= video_tag "ParisVideo.mp4", autoplay: true, loop: true, muted: true, class: "Background" %>
+      </div>
+    <%= yield %>
+    </div>
+  </div>
+  </body>
+</html>

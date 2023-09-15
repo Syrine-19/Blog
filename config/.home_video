@@ -1,0 +1,10 @@
+.home_video { 
+largeur : 100vw ; 
+hauteur : 100vh ; 
+position : absolue ; 
+affichage : flexible ; 
+justifier-contenu : centre ; 
+ajustement de l'objet : couverture ; 
+haut : 0 ; 
+indice z : -2 ; 
+}
